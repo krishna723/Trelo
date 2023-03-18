@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "606277207661",
+    "project_id": "trelo-24974",
+    "storage_bucket": "trelo-24974.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:606277207661:android:f3cbeb6a27dde015d12164",
+        "android_client_info": {
+          "package_name": "com.example.trelo.Activites"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "606277207661-1nm06dehgqlncolgrotqt8vhji1vc7lr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCh0yhO_Vsvolr8dFimWRPMgynQljt1I7o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "606277207661-1nm06dehgqlncolgrotqt8vhji1vc7lr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
