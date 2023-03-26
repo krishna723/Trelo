@@ -28,7 +28,7 @@ data class User(
         writeString(name)
         writeString(email)
         writeString(image)
-        writeString(mobile.toString())
+        writeLong(mobile)
         writeString(fcmToken)
     }
 

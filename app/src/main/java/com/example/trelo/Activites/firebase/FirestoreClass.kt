@@ -1,6 +1,9 @@
 package com.example.trelo.Activites.firebase
 
+import android.app.Activity
 import android.util.Log
+import com.example.trelo.Activites.activites.MainActivity
+import com.example.trelo.Activites.activites.ProfileActivity
 import com.example.trelo.Activites.activites.SignInActivity
 import com.example.trelo.Activites.activites.SignUpActivity
 import com.example.trelo.Activites.model.User
@@ -27,20 +30,43 @@ class FirestoreClass {
 
     }
 
-    fun signInUser(activity: SignInActivity){
+
+    fun loadUserData(activity: Activity){
         mFireStore.collection(Constants.USERS)
             .document(getCurrentUserId())
             .get()
-            .addOnSuccessListener {document->
+            .addOnSuccessListener {document ->
                 val loggedInUser=document.toObject(User::class.java)
                 if (loggedInUser !=null){
-                    activity.signInSuccess(loggedInUser)
+                    when(activity){
+                        is SignInActivity->{
+                            activity.signInSuccess(loggedInUser)
+                        }
+                        is MainActivity->{
+                            activity.updateNavigationUserDetails(loggedInUser)
+                            Log.d("currentID",loggedInUser.name)
+                        }
+
+                        is ProfileActivity ->{
+                            activity.setUserData(loggedInUser)
+                        }
+                    }
+
                 }
 
 
             }.addOnFailureListener {
                     e ->
-                Log.e(activity.javaClass.simpleName,"Error occurs")
+                when(activity){
+
+                    is SignInActivity->{
+                        activity.hideProgressDialog()
+                    }
+                    is MainActivity->{
+                        activity.hideProgressDialog()
+                    }
+                }
+                Log.e("error","Error occurs")
             }
     }
 
